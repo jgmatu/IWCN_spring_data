@@ -5,12 +5,12 @@ import javax.persistence.Id;
 import javax.validation.constraints.Min;
 import javax.validation.constraints.Size;
 
-import groovy.transform.InheritConstructors;
 import lombok.Getter;
-import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 @Entity
+@Setter
+@Getter
 public class Product {
 
 	@Id
@@ -26,7 +26,7 @@ public class Product {
     @Min(0)
     private float price;
 
-	public Product() {
+	protected Product() {
 		;
 	}
 
@@ -36,38 +36,7 @@ public class Product {
 		this.desc = desc;
 		this.price = price;
 	}
-	
-	public int getCode() {
-		return code;
-	}
-
-	public void setCode(int code) {
-		this.code = code;
-	}
-	public String getName() {
-		return name;
-	}
-
-	public void setName(String name) {
-		this.name = name;
-	}
-
-	public String getDesc() {
-		return desc;
-	}
-
-	public void setDesc(String desc) {
-		this.desc = desc;
-	}
-
-	public float getPrice() {
-		return price;
-	}
-
-	public void setPrice(float price) {
-		this.price = price;
-	}
-	
+		
 	@Override 
 	public String toString() {
 		return String.format("Code : %d Name : %s, Desc : %s, Price : %f", code, name, desc, price);
